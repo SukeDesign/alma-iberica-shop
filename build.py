@@ -95,10 +95,10 @@ def stars(r):
 def card(p, hidden=False):
     badges = "".join(f'<span class="badge {BADGE[b][0]}">{BADGE[b][1]}</span>' for b in p["badges"])
     out = p["stock"] == 0
-    add = ('<button type="button" class="btn p-add" disabled aria-label="Nicht verfügbar" title="Nicht verfügbar"><i class="bi bi-cart-x" aria-hidden="true"></i></button>' if out else
-           f'<button type="button" class="btn p-add" data-add="{p["id"]}" aria-label="In den Warenkorb: {p["name"]}" title="In den Warenkorb"><i class="bi bi-cart3" aria-hidden="true"></i></button>')
+    add = ('<button type="button" class="btn p-add" disabled aria-label="Nicht verfügbar" title="Nicht verfügbar"><i class="bi bi-cart-x-fill" aria-hidden="true"></i></button>' if out else
+           f'<button type="button" class="btn p-add" data-add="{p["id"]}" aria-label="In den Warenkorb: {p["name"]}" title="In den Warenkorb"><i class="bi bi-cart-fill" aria-hidden="true"></i></button>')
     return f'''<article class="p-card" data-id="{p["id"]}" data-cat="{p["cat"]}" data-region="{p["region"]}" data-price="{p["price"]}" data-stock="{p["stock"]}" data-cool="{int(p["cool"])}" data-bio="{int(p["bio"])}" data-trad="{int(p["trad"])}" data-allergens="{p["allergens"].lower()}" data-rating="{p["rating"]}" data-name="{p["name"]}" data-brand="{p["brand"]}"{" hidden" if hidden else ""}>
-  <div class="p-media"><img src="assets/img/{p["img"]}.webp" alt="{p["name"]}" width="307" height="409" loading="lazy" decoding="async"><div class="p-badges">{badges}</div>
+  <div class="p-media"><a class="p-media-link" href="product.html?id={p["id"]}" tabindex="-1" aria-hidden="true"><img src="assets/img/{p["img"]}.webp" alt="{p["name"]}" width="307" height="409" loading="lazy" decoding="async"></a><div class="p-badges">{badges}</div>
     <button type="button" class="p-wish" data-wish="{p["id"]}" aria-pressed="false" aria-label="{p["name"]} zur Wunschliste hinzufügen"><i class="bi bi-heart" aria-hidden="true"></i></button>
     <div class="p-add-wrap">{add}</div></div>
   <div class="p-body">
@@ -108,7 +108,6 @@ def card(p, hidden=False):
     <div class="p-price ai-price">{eur(p["price"])}</div>
     <div class="p-base">{base(p)} · inkl. MwSt.</div>
     <div>{stock_html(p)}</div>
-    <div class="p-actions"><button type="button" class="btn btn-outline-primary btn-icon p-quick" data-quick="{p["id"]}" aria-label="Schnellansicht: {p["name"]}"><i class="bi bi-eye" aria-hidden="true"></i></button></div>
   </div>
 </article>'''
 

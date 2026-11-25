@@ -34,9 +34,9 @@
   --c-vinho-dunkel: #6E171C;   /* Vinho ~10 % dunkler (Hover) */
   --c-vinho-tint:   #F8ECEC;   /* Badge-/Hintergrund-Tönung */
   --c-laranja-badge: #C4301B;  /* Laranja abgedunkelt: weißer Text erreicht 5,5:1 (Original nur 3,3:1) */
-  --c-gold:  #8A6D00;          /* Sterne (Text-/Icon-tauglich ≥ 4,5:1 auf Weiß) */
+  --c-gold:  #e8c43c;          /* Sterne (Achtung: nur ca. 1,6:1 Kontrast auf Weiß) */
   --c-ok:    #1E6B3A;          /* Verfügbar */
-  --c-warn:  #8A4B00;          /* Wenig Bestand */
+  --c-warn:  #FF4F37;          /* Wenig Bestand (wie --c-laranja) */
 
   /* ---- Marken-Konfiguration ---- */
   --ai-brand-name: "Alma Ibérica";
@@ -229,9 +229,9 @@ img { max-width: 100%; height: auto; }
 .p-actions .btn-primary { flex: 1; padding-inline: .5rem; }
 /* Warenkorb-Button: runder Icon-Button unten rechts im Bild, weiße „Kerbe“ als Rahmen */
 .p-add-wrap { position: absolute; right: 0; bottom: 0; z-index: 1; padding: .5rem 0 0 .5rem; background: var(--c-weiss); border-top-left-radius: 1.25rem; }
-.p-add { --bs-btn-padding-x: 0; --bs-btn-padding-y: 0; width: 48px; height: 48px; border: 0; border-radius: 50%; background: var(--c-azulejo); color: var(--c-tinte); font-size: 1.35rem; display: inline-flex; align-items: center; justify-content: center; transition: background-color .2s ease, color .2s ease, transform .15s ease; }
-.p-add:hover, .p-add:focus-visible { background: var(--c-vinho); color: var(--c-weiss); transform: scale(1.06); }
-.p-add:active { background: var(--c-vinho-dunkel); color: var(--c-weiss); }
+.p-add { --bs-btn-padding-x: 0; --bs-btn-padding-y: 0; width: 48px; height: 48px; border: 0; border-radius: 50%; background: var(--c-azulejo); color: var(--c-weiss); font-size: 1.35rem; display: inline-flex; align-items: center; justify-content: center; transition: background-color .2s ease, color .2s ease, transform .15s ease; }
+.p-add:hover, .p-add:focus-visible { background: #5A6570; color: var(--c-weiss); transform: scale(1.06); }
+.p-add:active { background: #4A545E; color: var(--c-weiss); }
 .p-add:disabled { background: #D9DEE2; color: var(--c-grau); opacity: 1; transform: none; }
 .p-add.is-loading i { visibility: hidden; }
 .p-add.is-loading::after { content: ""; position: absolute; width: 1.2rem; height: 1.2rem; border: 3px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: p-spin .6s linear infinite; }
@@ -248,7 +248,19 @@ img { max-width: 100%; height: auto; }
 @keyframes ai-shimmer { 0% { background-position: 100% 50%; } 100% { background-position: 0 50%; } }
 
 /* ---------- Karussell (CSS scroll-snap, kein JS nötig) ---------- */
-.ai-carousel { display: grid; grid-auto-flow: column; grid-auto-columns: 70%; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; scrollbar-color: var(--c-vinho) var(--flaeche); }
+.ai-carousel { display: grid; grid-auto-flow: column; grid-auto-columns: 70%; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: .5rem; scrollbar-width: none; }
+.ai-carousel::-webkit-scrollbar { display: none; }
+.ai-carousel-wrap { position: relative; }
+.ai-car-btn { position: absolute; top: 40%; transform: translateY(-50%); z-index: 2; width: 48px; height: 48px; border: 0; border-radius: 50%; background: var(--c-weiss); color: var(--c-tinte); box-shadow: 0 2px 10px rgba(22, 24, 29, .25); display: none; align-items: center; justify-content: center; font-size: 1.2rem; transition: background-color .2s ease, color .2s ease, opacity .2s ease; }
+.ai-car-btn:hover:not(:disabled), .ai-car-btn:focus-visible { background: var(--c-vinho); color: var(--c-weiss); }
+.ai-car-btn:disabled { opacity: 0; pointer-events: none; }
+.ai-car-prev { left: -24px; } .ai-car-next { right: -24px; }
+.ai-car-dots { display: flex; justify-content: center; flex-wrap: wrap; }
+.ai-car-dot { width: 44px; height: 44px; padding: 0; border: 0; background: none; display: inline-grid; place-items: center; }
+.ai-car-dot::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid var(--c-grau); transition: background-color .2s ease; }
+.ai-car-dot[aria-current="true"]::before { background: var(--c-vinho); border-color: var(--c-vinho); }
+@media (min-width: 768px) { .ai-car-btn { display: inline-flex; } .ai-car-dots { display: none; } }
+@media (prefers-reduced-motion: reduce) { .ai-carousel { scroll-behavior: auto; } }
 .ai-carousel > * { scroll-snap-align: start; }
 .ai-carousel:focus-visible { outline-offset: 0; }
 @media (min-width: 576px) { .ai-carousel { grid-auto-columns: 42%; } }

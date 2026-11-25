@@ -482,6 +482,44 @@
     });
   });
 
+  /* ---------- Karussell: Pfeile (Desktop) und Punkte (kleine Geräte) ---------- */
+  $$('.ai-carousel').forEach(function (car) {
+    var wrap = document.createElement('div'); wrap.className = 'ai-carousel-wrap';
+    car.parentNode.insertBefore(wrap, car); wrap.appendChild(car);
+    function mk(cls, icon, label) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = cls; b.setAttribute('aria-label', label);
+      b.innerHTML = '<i class="bi ' + icon + '" aria-hidden="true"></i>'; return b;
+    }
+    var prev = mk('ai-car-btn ai-car-prev', 'bi-chevron-left', 'Zurück'), next = mk('ai-car-btn ai-car-next', 'bi-chevron-right', 'Weiter');
+    var dots = document.createElement('div'); dots.className = 'ai-car-dots';
+    wrap.insertBefore(prev, car); wrap.appendChild(next); wrap.appendChild(dots);
+    function pages() { return Math.max(1, Math.ceil((car.scrollWidth - 2) / car.clientWidth)); }
+    function current() { var max = car.scrollWidth - car.clientWidth; return max <= 0 ? 0 : Math.round(car.scrollLeft / max * (pages() - 1)); }
+    function buildDots() {
+      dots.innerHTML = '';
+      for (var i = 0; i < pages(); i++) {
+        (function (n) {
+          var d = document.createElement('button'); d.type = 'button'; d.className = 'ai-car-dot'; d.setAttribute('aria-label', 'Seite ' + (n + 1) + ' von ' + pages());
+          d.addEventListener('click', function () { var max = car.scrollWidth - car.clientWidth; car.scrollTo({ left: pages() > 1 ? max * n / (pages() - 1) : 0 }); });
+          dots.appendChild(d);
+        })(i);
+      }
+      update();
+    }
+    function update() {
+      var max = car.scrollWidth - car.clientWidth;
+      prev.disabled = car.scrollLeft <= 2; next.disabled = car.scrollLeft >= max - 2;
+      var c = current();
+      Array.prototype.forEach.call(dots.children, function (d, i) { if (i === c) { d.setAttribute('aria-current', 'true'); } else { d.removeAttribute('aria-current'); } });
+    }
+    prev.addEventListener('click', function () { car.scrollBy({ left: -car.clientWidth * 0.9 }); });
+    next.addEventListener('click', function () { car.scrollBy({ left: car.clientWidth * 0.9 }); });
+    car.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', buildDots);
+    window.addEventListener('load', buildDots);
+    buildDots();
+  });
+
   /* ---------- Sonstiges ---------- */
   $$('[data-year]').forEach(function (y) { y.textContent = new Date().getFullYear(); });
   $$('form').forEach(function (f) {
