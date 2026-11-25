@@ -227,6 +227,16 @@ img { max-width: 100%; height: auto; }
 .p-base { font-size: .8125rem; }
 .p-actions { margin-top: auto; padding-top: 1rem; display: flex; gap: .5rem; position: relative; z-index: 1; }
 .p-actions .btn-primary { flex: 1; padding-inline: .5rem; }
+/* Warenkorb-Button: runder Icon-Button unten rechts im Bild, weiße „Kerbe“ als Rahmen */
+.p-add-wrap { position: absolute; right: 0; bottom: 0; z-index: 1; padding: .5rem 0 0 .5rem; background: var(--c-weiss); border-top-left-radius: 1.25rem; }
+.p-add { --bs-btn-padding-x: 0; --bs-btn-padding-y: 0; width: 48px; height: 48px; border: 0; border-radius: 50%; background: var(--c-azulejo); color: var(--c-tinte); font-size: 1.35rem; display: inline-flex; align-items: center; justify-content: center; transition: background-color .2s ease, color .2s ease, transform .15s ease; }
+.p-add:hover, .p-add:focus-visible { background: var(--c-vinho); color: var(--c-weiss); transform: scale(1.06); }
+.p-add:active { background: var(--c-vinho-dunkel); color: var(--c-weiss); }
+.p-add:disabled { background: #D9DEE2; color: var(--c-grau); opacity: 1; transform: none; }
+.p-add.is-loading i { visibility: hidden; }
+.p-add.is-loading::after { content: ""; position: absolute; width: 1.2rem; height: 1.2rem; border: 3px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: p-spin .6s linear infinite; }
+@keyframes p-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .p-add.is-loading::after { animation: none; } .p-add:hover { transform: none; } }
 .p-quick { position: relative; z-index: 1; }
 .stock { font-size: .8125rem; font-weight: 600; display: inline-flex; align-items: center; gap: .3rem; }
 .stock-ok { color: var(--c-ok); }
