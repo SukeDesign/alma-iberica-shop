@@ -87,4 +87,4 @@ Keine API-Schlüssel, Passwörter oder Zugangsdaten in den Code oder auf GitHub.
 
 ## Lizenz
 
-Noch nicht festgelegt. Lehr- und Demoprojekt.
+Alle Rechte vorbehalten. Lehr- und Demoprojekt.

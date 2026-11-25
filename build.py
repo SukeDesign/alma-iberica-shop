@@ -256,6 +256,10 @@ def static_body(f):
 <tr><th scope="row">Kühlversand (Aufschlag)</th><td data-label="Lieferzeit">1–2 Werktage</td><td data-label="Kosten">+{BRAND["cool_cost"].replace(".", ",")} €</td></tr>
 <tr><th scope="row">[EU-Länder]</th><td data-label="Lieferzeit">[x–y Werktage]</td><td data-label="Kosten">[Preis]</td></tr></tbody></table></div>
 <h2 class="h4 mt-4" id="pickup">Click &amp; Collect</h2><p>Bestellen Sie online und holen Sie Ihre Ware in {BRAND["pickup"]} ab. Kühlware bleibt bis zur Abholung gekühlt.</p>'''
+    elif f == "imprint.html":
+        inner = f'''<p class="alert alert-info"><i class="bi bi-info-circle" aria-hidden="true"></i> {notes[f]}</p>
+<h2 class="h4 mt-4" id="ai-images">KI-generierte Bilder</h2>
+<p>Ein Teil der Bilder auf dieser Website (Produkt-, Teaser- und Hintergrundbilder) wurde mit Hilfe von künstlicher Intelligenz (KI) erzeugt. Diese Bilder zeigen keine echten Aufnahmen und können vom tatsächlichen Produkt abweichen. Maßgeblich sind die Produktangaben im Text und die Angaben auf der Verpackung.</p>'''
     else:
         inner = f'<p class="alert alert-info"><i class="bi bi-info-circle" aria-hidden="true"></i> {notes.get(f, "[PLATZHALTER]")}</p>'
     return f'<main id="main"><div class="container ai-section">{bc}<h1 class="mb-4">{title}</h1><div class="ai-wide">{inner}</div></div></main>'
