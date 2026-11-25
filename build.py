@@ -244,18 +244,18 @@ def static_body(f):
         inner = f'<div class="accordion" id="faqAcc">{items}</div>'
     elif f == "contact.html":
         inner = f'''<div class="row g-4"><div class="col-lg-6"><h2 class="h4">Schreiben Sie uns</h2>
-<form novalidate><div class="mb-3"><label class="form-label" for="k-name">Name <span class="req" aria-hidden="true">*</span></label><input class="form-control" id="k-name" name="name" autocomplete="name" required></div>
-<div class="mb-3"><label class="form-label" for="k-mail">E-Mail <span class="req" aria-hidden="true">*</span></label><input class="form-control" type="email" id="k-mail" name="email" autocomplete="email" required></div>
-<div class="mb-3"><label class="form-label" for="k-msg">Nachricht <span class="req" aria-hidden="true">*</span></label><textarea class="form-control" id="k-msg" rows="5" required></textarea></div>
+<form novalidate><div class="mb-3"><label class="form-label" for="contact-name">Name <span class="req" aria-hidden="true">*</span></label><input class="form-control" id="contact-name" name="name" autocomplete="name" required></div>
+<div class="mb-3"><label class="form-label" for="contact-mail">E-Mail <span class="req" aria-hidden="true">*</span></label><input class="form-control" type="email" id="contact-mail" name="email" autocomplete="email" required></div>
+<div class="mb-3"><label class="form-label" for="contact-msg">Nachricht <span class="req" aria-hidden="true">*</span></label><textarea class="form-control" id="contact-msg" rows="5" required></textarea></div>
 <button class="btn btn-primary" type="submit">Nachricht senden</button></form></div>
-<div class="col-lg-6" id="oeffnungszeiten"><h2 class="h4">Öffnungszeiten &amp; Anfahrt</h2><p>{BRAND["hours"]}</p><p>{BRAND["street"]}, {BRAND["zip"]} {BRAND["city"]}</p><p><a href="tel:{BRAND["phone_raw"]}">{BRAND["phone"]}</a> · <a href="mailto:{BRAND["email"]}">{BRAND["email"]}</a></p><p><a class="btn btn-outline-primary" href="{BRAND["whatsapp_url"]}"><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp-Chat</a></p></div></div>'''
+<div class="col-lg-6" id="opening-hours"><h2 class="h4">Öffnungszeiten &amp; Anfahrt</h2><p>{BRAND["hours"]}</p><p>{BRAND["street"]}, {BRAND["zip"]} {BRAND["city"]}</p><p><a href="tel:{BRAND["phone_raw"]}">{BRAND["phone"]}</a> · <a href="mailto:{BRAND["email"]}">{BRAND["email"]}</a></p><p><a class="btn btn-outline-primary" href="{BRAND["whatsapp_url"]}"><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp-Chat</a></p></div></div>'''
     elif f == "shipping.html":
         inner = f'''<p class="alert alert-info"><i class="bi bi-info-circle" aria-hidden="true"></i> {notes[f]}</p>
 <div class="table-responsive"><table class="table table-stack align-middle"><caption class="visually-hidden">Versandkosten nach Zone</caption><thead><tr><th scope="col">Zone</th><th scope="col">Lieferzeit</th><th scope="col">Kosten</th></tr></thead><tbody>
 <tr><th scope="row">Deutschland</th><td data-label="Lieferzeit">2–4 Werktage</td><td data-label="Kosten">{BRAND["ship_cost"].replace(".", ",")} € · frei ab {BRAND["free_ship"]} €</td></tr>
 <tr><th scope="row">Kühlversand (Aufschlag)</th><td data-label="Lieferzeit">1–2 Werktage</td><td data-label="Kosten">+{BRAND["cool_cost"].replace(".", ",")} €</td></tr>
 <tr><th scope="row">[EU-Länder]</th><td data-label="Lieferzeit">[x–y Werktage]</td><td data-label="Kosten">[Preis]</td></tr></tbody></table></div>
-<h2 class="h4 mt-4" id="abholung">Click &amp; Collect</h2><p>Bestellen Sie online und holen Sie Ihre Ware in {BRAND["pickup"]} ab. Kühlware bleibt bis zur Abholung gekühlt.</p>'''
+<h2 class="h4 mt-4" id="pickup">Click &amp; Collect</h2><p>Bestellen Sie online und holen Sie Ihre Ware in {BRAND["pickup"]} ab. Kühlware bleibt bis zur Abholung gekühlt.</p>'''
     else:
         inner = f'<p class="alert alert-info"><i class="bi bi-info-circle" aria-hidden="true"></i> {notes.get(f, "[PLATZHALTER]")}</p>'
     return f'<main id="main"><div class="container ai-section">{bc}<h1 class="mb-4">{title}</h1><div class="ai-wide">{inner}</div></div></main>'

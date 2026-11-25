@@ -277,7 +277,7 @@
   if (grid) {
     var form = $('[data-filter-form]'), BATCH = 8, shown = BATCH;
     var cols = $$('.col', grid).map(function (c) { return { col: c, card: $('.p-card', c) }; });
-    var sortSel = $('[data-sort]'), priceIn = $('#preis-max');
+    var sortSel = $('[data-sort]'), priceIn = $('#price-max');
     var state = function () {
       var s = { kat: [], marke: [], region: [], allergen: [], flags: [], preis: parseFloat(priceIn.value) };
       $$('input[type=checkbox]:checked', form).forEach(function (c) { if (s[c.name]) { s[c.name].push(c.value); } else { s.flags.push(c.name); } });
@@ -316,7 +316,7 @@
     };
     var apply = function (reset) {
       if (reset) { shown = BATCH; }
-      var s = state(); $('#preis-out').textContent = priceIn.value + ' €';
+      var s = state(); $('#price-out').textContent = priceIn.value + ' €';
       var list = sorted(cols.filter(function (x) { return pass(x.card, s); }));
       cols.forEach(function (x) { x.col.hidden = true; });
       list.forEach(function (x, i) { grid.appendChild(x.col); x.col.hidden = i >= shown; });
@@ -353,7 +353,7 @@
       var c = $('input[name=' + k + '][value="' + v + '"]', form);
       if (c) { c.checked = true; $('[data-shop-title]').textContent = CATS[v] || c.nextElementSibling.textContent; }
     });
-    if (up.get('kuehl')) { $('#v-kuehl').checked = true; }
+    if (up.get('kuehl')) { $('#v-cool').checked = true; }
     apply(true);
   }
 

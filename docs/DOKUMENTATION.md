@@ -9,8 +9,8 @@ Stand: Prototyp v1 · HTML5, Bootstrap 5.3.3, Vanilla JS · Sprache: de-DE
 | Token | Wert | Einsatz | Kontrast |
 |---|---|---|---|
 | `--c-vinho` | #7F1D23 | CTA, Preise, Logo, Links, Hero | 10,0:1 auf Weiß |
-| `--c-tinte` | #16181D | Überschriften | – |
-| `--c-grau` | #5A6570 | Fließtext, Meta | 5,9:1 auf Weiß |
+| `--c-ink` | #16181D | Überschriften | – |
+| `--c-gray` | #5A6570 | Fließtext, Meta | 5,9:1 auf Weiß |
 | `--c-azulejo` | #5EB1BF | Hover-Unterstreichung, „Neu“-Badge (Tinte-Text), Muster | Tinte darauf 7,2:1 |
 | `--c-laranja` | #FF4F37 | nur dekorativ | Weiß darauf nur **3,3:1** |
 
