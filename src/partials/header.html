@@ -1,0 +1,95 @@
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<!-- KONFIG: Öffnungszeiten, Adresse und Telefon kommen aus build.py (BRAND) -->
+<div class="topbar">
+  <div class="container d-flex flex-nowrap flex-md-wrap justify-content-between align-items-start align-items-md-center gap-2 py-2">
+    <span class="topbar-info d-flex flex-wrap gap-3">
+      <span><i class="bi bi-clock" aria-hidden="true"></i> {{hours}}</span>
+      <span><i class="bi bi-geo-alt" aria-hidden="true"></i> {{address}}</span>
+    </span>
+    <span class="topbar-actions d-flex align-items-right gap-3">
+      <a class="topbar-phone" href="tel:{{phone_raw}}" aria-label="Anrufen: {{phone}}"><i class="bi bi-telephone-fill" aria-hidden="true"></i><span class="topbar-phone-text">{{phone}}</span></a>
+      <div class="lang-switch" role="group" aria-label="Sprache wählen">
+        <button type="button" class="lang-btn" data-lang="pt" lang="pt" aria-pressed="false" aria-label="Português"><img src="assets/img/flags/pt.svg" width="20" height="14" alt=""><span class="lang-code">PT</span></button>
+        <button type="button" class="lang-btn" data-lang="en" lang="en" aria-pressed="false" aria-label="English"><img src="assets/img/flags/en.svg" width="20" height="14" alt=""><span class="lang-code">EN</span></button>
+        <button type="button" class="lang-btn" data-lang="es" lang="es" aria-pressed="false" aria-label="Español"><img src="assets/img/flags/es.svg" width="20" height="14" alt=""><span class="lang-code">ES</span></button>
+        <button type="button" class="lang-btn" data-lang="de" lang="de" aria-pressed="true" aria-label="Deutsch"><img src="assets/img/flags/de.svg" width="20" height="14" alt=""><span class="lang-code">DE</span></button>
+      </div>
+    </span>
+  </div>
+</div>
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="header-row d-flex align-items-center gap-2 gap-md-3 py-2">
+      <button class="hdr-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#navOffcanvas" aria-controls="navOffcanvas" aria-label="Menü öffnen"><i class="bi bi-list" aria-hidden="true"></i></button>
+      <a class="logo" href="index.html" aria-label="{{brand}} – Startseite">
+        <svg viewBox="0 0 40 40" role="img" aria-label="Alma-Ibérica-Kachelsymbol"><rect width="40" height="40" rx="8" fill="#7F1D23"/><path d="M20 5 35 20 20 35 5 20z" fill="none" stroke="#fff" stroke-width="2"/><circle cx="20" cy="20" r="5" fill="#5EB1BF"/></svg>
+        <span>{{brand}}<small>Online Shop</small></span>
+      </a>
+      <form class="search-form flex-grow-1 d-none d-md-block mx-lg-4" role="search" action="search.html" data-search>
+        <label for="q-desktop" class="visually-hidden">Produkte suchen</label>
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <input id="q-desktop" class="form-control" type="search" name="q" placeholder="Bacalhau, Olivenöl, Rioja …" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="suggest-desktop" aria-autocomplete="list">
+        <div class="suggest" id="suggest-desktop" role="listbox" aria-label="Suchvorschläge" hidden></div>
+      </form>
+      <div class="ms-auto d-flex align-items-center">
+        <a class="hdr-btn" href="account.html" aria-label="Mein Konto"><i class="bi bi-person" aria-hidden="true"></i></a>
+        <a class="hdr-btn d-none d-sm-inline-flex" href="account.html#wunschliste" aria-label="Wunschliste" data-wish-link><i class="bi bi-heart" aria-hidden="true"></i><span class="cart-count" data-wish-badge hidden>0</span></a>
+        <button class="hdr-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas" aria-label="Warenkorb öffnen" data-cart-btn><i class="bi bi-bag" aria-hidden="true"></i><span class="cart-count" data-cart-badge>0</span></button>
+      </div>
+    </div>
+    <form class="search-form d-md-none pb-2" role="search" action="search.html" data-search>
+      <label for="q-mobile" class="visually-hidden">Produkte suchen</label>
+      <i class="bi bi-search" aria-hidden="true"></i>
+      <input id="q-mobile" class="form-control" type="search" name="q" placeholder="Produkte suchen …" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="suggest-mobile" aria-autocomplete="list">
+      <div class="suggest" id="suggest-mobile" role="listbox" aria-label="Suchvorschläge" hidden></div>
+    </form>
+  </div>
+  <nav class="main-nav d-none d-lg-block" aria-label="Hauptnavigation">
+    <div class="container mega-wrap">
+      <ul>
+        <li><button class="nav-link-ai" type="button" data-mega="mega-wein" aria-expanded="false" aria-controls="mega-wein">Wein &amp; Spirituosen <i class="bi bi-chevron-down" aria-hidden="true"></i></button></li>
+        <li><button class="nav-link-ai" type="button" data-mega="mega-fisch" aria-expanded="false" aria-controls="mega-fisch">Fisch &amp; Konserven <i class="bi bi-chevron-down" aria-hidden="true"></i></button></li>
+        <li><button class="nav-link-ai" type="button" data-mega="mega-fein" aria-expanded="false" aria-controls="mega-fein">Feinkost &amp; Öl <i class="bi bi-chevron-down" aria-hidden="true"></i></button></li>
+        <li><a class="nav-link-ai" href="shop.html?kat=suess">Süßes &amp; Gebäck</a></li>
+        <li><a class="nav-link-ai" href="gifts.html">Geschenkkörbe &amp; Gutscheine</a></li>
+      </ul>
+      <div class="mega-panel" id="mega-wein" hidden>
+        <div class="row g-4">
+          <div class="col-4"><h3>Portugal</h3><ul><li><a href="shop.html?region=douro">Douro</a></li><li><a href="shop.html?region=alentejo">Alentejo</a></li><li><a href="shop.html?region=minho">Vinho Verde (Minho)</a></li><li><a href="search.html?q=Portwein">Portwein</a></li></ul></div>
+          <div class="col-4"><h3>Spanien</h3><ul><li><a href="shop.html?region=rioja">Rioja</a></li><li><a href="shop.html?region=andalusien">Andalusien</a></li><li><a href="shop.html?region=kastilien">Kastilien-La Mancha</a></li></ul></div>
+          <div class="col-4"><h3>Entdecken</h3><ul><li><a href="shop.html?kat=wein">Alle Weine</a></li><li><a href="shop.html?kat=spirituosen">Spirituosen &amp; Likör</a></li><li><a href="gifts.html">Weingeschenke</a></li></ul></div>
+        </div>
+      </div>
+      <div class="mega-panel" id="mega-fisch" hidden>
+        <div class="row g-4">
+          <div class="col-4"><h3>Bacalhau</h3><ul><li><a href="shop.html?kat=bacalhau">Stockfisch getrocknet</a></li><li><a href="shop.html?kat=bacalhau&amp;kuehl=1">Frisch &amp; tiefgekühlt</a></li></ul></div>
+          <div class="col-4"><h3>Konserven</h3><ul><li><a href="shop.html?kat=konserven">Sardinen &amp; Konserven</a></li></ul></div>
+          <div class="col-4"><h3>Tipp</h3><p class="mb-0">Kühlpflichtige Ware reist im Kühlversand – <a href="shipping.html">mehr erfahren</a>.</p></div>
+        </div>
+      </div>
+      <div class="mega-panel" id="mega-fein" hidden>
+        <div class="row g-4">
+          <div class="col-4"><h3>Fleisch &amp; Wurst</h3><ul><li><a href="shop.html?kat=schinken">Schinken &amp; Wurst</a></li></ul></div>
+          <div class="col-4"><h3>Käse</h3><ul><li><a href="shop.html?kat=kaese">Alle Käsesorten</a></li><li><a href="search.html?q=Manchego">Queijo Manchego</a></li><li><a href="search.html?q=Queijo%20de%20Cabra">Queijo de cabra</a></li></ul></div>
+          <div class="col-4"><h3>Öl &amp; Vorrat</h3><ul><li><a href="shop.html?kat=oel">Olivenöl</a></li><li><a href="shop.html?kat=kaffee">Kaffee</a></li><li><a href="shop.html?kat=brot">Brot &amp; Gebäck</a></li></ul></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="navOffcanvas" aria-labelledby="navOffcanvasLabel">
+  <div class="offcanvas-header"><h2 class="offcanvas-title h5" id="navOffcanvasLabel">Menü</h2><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Menü schließen"></button></div>
+  <div class="offcanvas-body">
+    <nav aria-label="Mobile Navigation">
+      <ul class="list-unstyled">
+        <li><a class="d-block py-3 fw-semibold" href="shop.html?kat=wein">Wein &amp; Spirituosen</a></li>
+        <li><a class="d-block py-3 fw-semibold" href="shop.html?kat=bacalhau">Fisch &amp; Konserven</a></li>
+        <li><a class="d-block py-3 fw-semibold" href="shop.html?kat=schinken">Feinkost &amp; Öl</a></li>
+        <li><a class="d-block py-3 fw-semibold" href="shop.html?kat=suess">Süßes &amp; Gebäck</a></li>
+        <li><a class="d-block py-3 fw-semibold" href="gifts.html">Geschenkkörbe &amp; Gutscheine</a></li>
+        <li><a class="d-block py-3 fw-semibold" href="account.html#wunschliste">Wunschliste</a></li>
+        <li><a class="d-block py-3 fw-semibold" href="account.html">Mein Konto</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>

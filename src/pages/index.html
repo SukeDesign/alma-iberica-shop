@@ -1,0 +1,103 @@
+<main id="main">
+  <!-- HERO: LCP-Bild mit fetchpriority=high + preload im <head>. aspect-ratio reserviert Platz (kein CLS). -->
+  <section class="hero on-dark ai-pattern" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="row align-items-center g-4 g-lg-5">
+        <div class="col-lg-6 hero-text order-2 order-lg-1">
+          <p class="ai-eyebrow mb-2">Portugal &amp; Spanien unter einem Dach</p>
+          <h1 id="hero-title" class="mb-3">Die Seele der Iberischen Halbinsel</h1>
+          <p class="lead mb-4">Authentisch, hochwertig, mit Liebe ausgewählt: Bacalhau, Olivenöl, Wein, Feinkost und Pastéis de Nata – direkt zu Ihnen nach Hause.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a class="btn btn-light-ai btn-lg" href="shop.html">Zum Shop <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            <a class="btn btn-outline-light btn-lg" href="#geschichte">Unsere Geschichte</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 py-lg-4">
+          <!-- HERO-ANIMATION: Video-Loop (muted, playsinline). Poster = Standbild -> kein CLS, schneller LCP.
+               Barrierefrei: Pause-Button (WCAG 2.2.2); bei prefers-reduced-motion startet das Video nicht. -->
+          <div class="hero-media hero-anim">
+            <video id="hero-video" width="640" height="360" poster="assets/img/hero.webp" autoplay muted preload="metadata"
+                   aria-label="Animierter Eindruck aus dem Alma Ibérica Mercado: portugiesische Spezialitäten, Wein und Café">
+              <source src="assets/img/hero.webm" type="video/webm">
+              <source src="assets/img/hero.mp4" type="video/mp4">
+            </video>
+            <button type="button" class="drone-toggle" aria-label="Animation anhalten" aria-controls="hero-video"><i class="bi bi-pause-fill" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST-BAR -->
+  <section class="border-bottom" aria-label="Unsere Vorteile">
+    <div class="container"><ul class="row list-unstyled mb-0 py-2">
+      <li class="col-6 col-md-3 trust-item"><i class="bi bi-snow2" aria-hidden="true"></i><div><strong>Kühlversand</strong><span>Frische Ware sicher geliefert</span></div></li>
+      <li class="col-6 col-md-3 trust-item"><i class="bi bi-shop" aria-hidden="true"></i><div><strong>Abholung</strong><span>Click &amp; Collect am Essen</span></div></li>
+      <li class="col-6 col-md-3 trust-item"><i class="bi bi-box-seam" aria-hidden="true"></i><div><strong>5.000+ Artikel</strong><span>Kuratiert aus Portugal &amp; Spanien</span></div></li>
+      <li class="col-6 col-md-3 trust-item"><i class="bi bi-house-heart" aria-hidden="true"></i><div><strong>Familienbetrieb</strong><span>Persönliche Beratung per WhatsApp</span></div></li>
+    </ul></div>
+  </section>
+
+  <!-- KATEGORIEN -->
+  <section class="ai-section" aria-labelledby="kat-title">
+    <div class="container">
+      <h2 id="kat-title" class="mb-4">Entdecken Sie unser Sortiment</h2>
+      <div class="row g-3">
+        <div class="col-6 col-lg-3"><a class="cat-tile" href="shop.html?kat=wein"><img src="assets/img/wein-alentejo.webp" alt="" width="307" height="409" loading="lazy" decoding="async"><span>Wein &amp; Portwein</span></a></div>
+        <div class="col-6 col-lg-3"><a class="cat-tile" href="shop.html?kat=bacalhau"><img src="assets/img/bacalhau.webp" alt="" width="307" height="409" loading="lazy" decoding="async"><span>Bacalhau &amp; Fisch</span></a></div>
+        <div class="col-6 col-lg-3"><a class="cat-tile" href="shop.html?kat=schinken"><img src="assets/img/chourico.webp" alt="" width="307" height="409" loading="lazy" decoding="async"><span>Feinkost &amp; Wurst</span></a></div>
+        <div class="col-6 col-lg-3"><a class="cat-tile" href="shop.html?kat=brot"><img src="assets/img/pasteis.webp" alt="" width="307" height="409" loading="lazy" decoding="async"><span>Süßes &amp; Gebäck</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BESTSELLER -->
+  <section class="ai-section ai-tint" aria-labelledby="best-title">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-3"><h2 id="best-title" class="mb-0">Unsere Bestseller</h2><a href="shop.html">Alle ansehen</a></div>
+      <div class="ai-carousel" tabindex="0" role="region" aria-label="Bestseller – seitlich scrollen">
+        {{cards:bestseller}}
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="ai-section" id="geschichte" aria-labelledby="story-title">
+    <div class="container"><div class="row align-items-center g-4 g-lg-5">
+      <div class="col-md-6"><img class="teaser-img" src="assets/img/import.webp" alt="Türkis-weinrotes Kachelmuster als Symbol für den Import von der Iberischen Halbinsel" width="800" height="600" loading="lazy" decoding="async"></div>
+      <div class="col-md-6">
+        <p class="ai-eyebrow">Unsere Geschichte</p>
+        <h2 id="story-title">Von der Iberischen Halbinsel importiert</h2>
+        <p>„Alma“ heißt Seele. Wir wählen jedes Produkt selbst aus – bei kleinen Erzeugern im Alentejo, im Douro-Tal, in der Rioja und in Andalusien.</p>
+        <p>Dazu gehört auch unser Importservice: <strong>Produkt nicht gefunden? Wir importieren es für Sie.</strong></p>
+        <a class="btn btn-primary" href="search.html?q=">Wunschprodukt anfragen</a>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- GESCHENKKÖRBE -->
+  <!-- Volle Breite mit Parallax: Bild steht fest, Inhalt scrollt darüber (Bild als CSS-Hintergrund, siehe .gift-parallax in alma.css) -->
+  <section class="gift-parallax on-dark" aria-labelledby="gift-title">
+    <div class="container">
+      <div class="gift-parallax-box">
+        <p class="ai-eyebrow">Geschenke mit Seele</p>
+        <h2 id="gift-title">Geschenkkörbe &amp; Gutscheine</h2>
+        <p>Für Geburtstag, Weihnachten, Danke oder als Firmengeschenk – fertig gepackt oder individuell zusammengestellt.</p>
+        <a class="btn btn-light-ai btn-lg" href="gifts.html">Geschenke entdecken</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter on-dark ai-section" aria-labelledby="nl-title">
+    <div class="container"><div class="row justify-content-center"><div class="col-lg-7 text-center">
+      <h2 id="nl-title">Neuigkeiten aus Iberien</h2>
+      <p>Neue Weine, Saisonprodukte und Rezepte – höchstens zweimal im Monat.</p>
+      <form class="row g-2 justify-content-center text-start" data-newsletter novalidate>
+        <div class="col-12 col-sm-8"><label class="form-label" for="nl-mail">E-Mail-Adresse <span aria-hidden="true">*</span></label><input class="form-control" type="email" id="nl-mail" name="email" autocomplete="email" required aria-describedby="nl-help"></div>
+        <div class="col-12 col-sm-4 d-flex align-items-end"><button class="btn btn-light-ai w-100" type="submit">Anmelden</button></div>
+        <div class="col-12"><p id="nl-help" class="small mb-0">Abmeldung jederzeit möglich. Siehe <a href="privacy.html">Datenschutz</a>.</p></div>
+      </form>
+    </div></div></div>
+  </section>
+</main>

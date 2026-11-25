@@ -1,0 +1,18 @@
+# Geheimnisse – niemals auf GitHub
+.env
+.env.*
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.pyc
+
+# Claude Code lokale Einstellungen
+.claude/settings.local.json
+
+# Betriebssystem / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

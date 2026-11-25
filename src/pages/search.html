@@ -1,0 +1,17 @@
+<main id="main">
+  <div class="container pt-3 pb-5">
+    <nav aria-label="Brotkrümelnavigation"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Start</a></li><li class="breadcrumb-item active" aria-current="page">Suche</li></ol></nav>
+    <h1 class="mb-2">Suchergebnisse <span class="h4 text-body" data-search-term></span></h1>
+    <p role="status" aria-live="polite" data-search-status></p>
+    <p data-didyoumean hidden>Meinten Sie <a href="#" data-didyoumean-link></a>?</p>
+    <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-3" data-search-results></div>
+    <section class="ai-section" data-noresult hidden aria-labelledby="nr-title">
+      <div class="p-4 p-md-5 rounded-4 ai-tint text-center"><i class="bi bi-whatsapp fs-1 text-danger" aria-hidden="true"></i>
+        <h2 id="nr-title" class="h3">Nicht gefunden? Wir importieren es für Sie.</h2>
+        <p class="mx-auto">Schreiben Sie uns, was Sie suchen. Unser Team prüft die Verfügbarkeit bei Lieferanten in Portugal und Spanien und meldet sich persönlich.</p>
+        <a class="btn btn-primary btn-lg" href="{{whatsapp_url}}" rel="noopener"><i class="bi bi-whatsapp" aria-hidden="true"></i> Per WhatsApp anfragen</a>
+      </div>
+    </section>
+  </div>
+  <template id="card-tpl">{{cards:all}}</template>
+</main>

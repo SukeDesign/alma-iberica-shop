@@ -1,0 +1,91 @@
+<main id="main">
+  <div class="container pt-4 pt-lg-5 pb-5">
+    <nav aria-label="Brotkrümelnavigation"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Start</a></li><li class="breadcrumb-item active" aria-current="page">Shop</li></ol></nav>
+    <h1 class="mb-3" data-shop-title>Iberische Spezialitäten</h1>
+    <p class="mb-5">Entdecken Sie portugiesische und spanische Feinkost, Weine und Bacalhau – sorgfältig kuratiert und mit Angabe von Herkunft, Allergenen und Grundpreis. Filtern Sie nach Region, Preis oder Verfügbarkeit.</p>
+
+    <!-- Toolbar: Filter ein-/ausblenden · Trefferanzahl · Sortierung -->
+    <div class="shop-toolbar mb-4">
+      <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterBar" aria-expanded="true" aria-controls="filterBar" data-filter-toggle><i class="bi bi-sliders" aria-hidden="true"></i> <span data-filter-toggle-label>Filter ausblenden</span></button>
+      <p class="mb-0" role="status" aria-live="polite"><strong data-result-count>17</strong> Produkte</p>
+      <div class="d-flex align-items-center gap-2"><label class="form-label mb-0" for="sort">Sortieren nach</label>
+        <select class="form-select w-auto" id="sort" data-sort><option value="rel">Empfohlen</option><option value="price-asc">Preis aufsteigend</option><option value="price-desc">Preis absteigend</option><option value="rating">Beste Bewertung</option><option value="name">Name A–Z</option></select></div>
+    </div>
+
+    <!-- Horizontale Filterleiste (einklappbar). Jede Gruppe ist ein Dropdown; alle Checkboxen bleiben im selben Formular. -->
+    <div class="collapse show" id="filterBar">
+      <form class="filter-bar mb-4" data-filter-form aria-label="Produktfilter">
+        <div class="dropdown"><button class="btn filter-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-bs-popper-config='{"strategy":"fixed"}' aria-expanded="false">Kategorie<span class="filter-n" data-filter-n></span></button>
+          <div class="dropdown-menu filter-menu">
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="kat-wein" name="kat" value="wein"><label for="kat-wein">Wein</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="kat-bacalhau" name="kat" value="bacalhau"><label for="kat-bacalhau">Bacalhau</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="kat-oel" name="kat" value="oel"><label for="kat-oel">Olivenöl</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="kat-schinken" name="kat" value="schinken"><label for="kat-schinken">Schinken &amp; Wurst</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="kat-kaese" name="kat" value="kaese"><label for="kat-kaese">Käse</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="kat-konserven" name="kat" value="konserven"><label for="kat-konserven">Konserven</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="kat-brot" name="kat" value="brot"><label for="kat-brot">Brot &amp; Gebäck</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="kat-suess" name="kat" value="suess"><label for="kat-suess">Süßes &amp; Gebäck</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="kat-kaffee" name="kat" value="kaffee"><label for="kat-kaffee">Kaffee</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="kat-spirituosen" name="kat" value="spirituosen"><label for="kat-spirituosen">Spirituosen</label></div>
+          </div></div>
+        <div class="dropdown"><button class="btn filter-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-bs-popper-config='{"strategy":"fixed"}' aria-expanded="false">Marke<span class="filter-n" data-filter-n></span></button>
+          <div class="dropdown-menu filter-menu">
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="m-1" name="marke" value="Quinta da Serra"><label for="m-1">Quinta da Serra</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="m-2" name="marke" value="Casa do Mar"><label for="m-2">Casa do Mar</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="m-3" name="marke" value="Herdade Aurora"><label for="m-3">Herdade Aurora</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="m-4" name="marke" value="Dehesa Real"><label for="m-4">Dehesa Real</label></div>
+          </div></div>
+        <div class="dropdown"><button class="btn filter-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-bs-popper-config='{"strategy":"fixed"}' aria-expanded="false">Region<span class="filter-n" data-filter-n></span></button>
+          <div class="dropdown-menu filter-menu">
+            <p class="filter-group">Portugal</p>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="r-alentejo" name="region" value="alentejo"><label for="r-alentejo">Alentejo</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="r-douro" name="region" value="douro"><label for="r-douro">Douro</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="r-minho" name="region" value="minho"><label for="r-minho">Minho</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="r-azoren" name="region" value="azoren"><label for="r-azoren">Azoren</label></div>
+            <p class="filter-group mt-3">Spanien</p>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="r-rioja" name="region" value="rioja"><label for="r-rioja">Rioja</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="r-andalusien" name="region" value="andalusien"><label for="r-andalusien">Andalusien</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="r-katalonien" name="region" value="katalonien"><label for="r-katalonien">Katalonien</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="r-kastilien" name="region" value="kastilien"><label for="r-kastilien">Kastilien-La Mancha</label></div>
+          </div></div>
+        <div class="dropdown"><button class="btn filter-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-bs-popper-config='{"strategy":"fixed"}' aria-expanded="false">Preis<span class="filter-n" data-filter-n></span></button>
+          <div class="dropdown-menu filter-menu">
+            <label class="form-label" for="preis-max">Höchstpreis: <output id="preis-out" for="preis-max">30 €</output></label>
+            <input class="form-range" type="range" id="preis-max" name="preis" min="5" max="30" step="1" value="30">
+          </div></div>
+        <div class="dropdown"><button class="btn filter-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-bs-popper-config='{"strategy":"fixed"}' aria-expanded="false">Verfügbarkeit<span class="filter-n" data-filter-n></span></button>
+          <div class="dropdown-menu filter-menu">
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="v-lager" name="lager" value="1"><label for="v-lager">Nur lieferbare Artikel</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="v-kuehl" name="kuehl" value="1"><label for="v-kuehl">Kühlpflichtig</label></div>
+          </div></div>
+        <div class="dropdown"><button class="btn filter-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-bs-popper-config='{"strategy":"fixed"}' aria-expanded="false">Allergene<span class="filter-n" data-filter-n></span></button>
+          <div class="dropdown-menu filter-menu">
+            <p class="small">Zeigt nur Produkte ohne den gewählten Stoff. Maßgeblich sind die Angaben auf der Produktseite.</p>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="a-fisch" name="allergen" value="fisch"><label for="a-fisch">ohne Fisch</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="a-milch" name="allergen" value="milch"><label for="a-milch">ohne Milch</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="a-gluten" name="allergen" value="gluten"><label for="a-gluten">ohne Gluten</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="a-sulfit" name="allergen" value="sulfit"><label for="a-sulfit">ohne Sulfite</label></div>
+          </div></div>
+        <div class="dropdown"><button class="btn filter-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-bs-popper-config='{"strategy":"fixed"}' aria-expanded="false">Bio / Traditionell<span class="filter-n" data-filter-n></span></button>
+          <div class="dropdown-menu filter-menu">
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="b-bio" name="bio" value="1"><label for="b-bio">Bio</label></div>
+            <div class="filter-option"><input class="form-check-input" type="checkbox" id="b-trad" name="trad" value="1"><label for="b-trad">Traditionell hergestellt</label></div>
+          </div></div>
+        <button type="reset" class="btn btn-link filter-reset" data-filter-reset>Alle zurücksetzen</button>
+      </form>
+    </div>
+
+    <!-- Aktive Filter als Badges mit X (werden von alma.js befüllt) -->
+    <div class="d-flex flex-wrap gap-2 mb-4" data-pills aria-label="Aktive Filter"></div>
+
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-md-4 g-xl-5" data-grid>
+      {{shopcards}}
+    </div>
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-md-4 g-xl-5" data-skeleton hidden aria-hidden="true">
+      <div class="col"><div class="skeleton"></div></div><div class="col"><div class="skeleton"></div></div><div class="col d-none d-md-block"><div class="skeleton"></div></div><div class="col d-none d-lg-block"><div class="skeleton"></div></div>
+    </div>
+    <div class="alert alert-warning mt-4" data-empty hidden role="status"><i class="bi bi-search" aria-hidden="true"></i> Keine Treffer für diese Filter. <a href="search.html?q=">Wir importieren es für Sie.</a></div>
+    <div class="text-center mt-5"><button type="button" class="btn btn-outline-primary btn-lg" data-load-more>Mehr Produkte laden</button></div>
+    <section class="mt-5 pt-3" aria-labelledby="seo-title"><h2 id="seo-title" class="h4">Iberische Feinkost online bestellen</h2><p>Bei Alma Ibérica finden Sie portugiesische und spanische Spezialitäten an einem Ort: vom getrockneten Bacalhau über Olivenöl aus dem Alentejo bis zu Rioja-Reservas und Jamón Ibérico. Kühlpflichtige Ware reist im Kühlversand, alternativ holen Sie sie per Click &amp; Collect ab.</p></section>
+  </div>
+</main>

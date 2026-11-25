@@ -1,0 +1,31 @@
+<main id="main">
+  <div class="container pt-3 pb-5">
+    <nav aria-label="Brotkrümelnavigation"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Start</a></li><li class="breadcrumb-item active" aria-current="page">Warenkorb</li></ol></nav>
+    <h1 class="mb-4">Ihr Warenkorb</h1>
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="free-ship mb-3 p-3 ai-tint rounded-3"><p class="mb-1 fw-semibold text-dark" data-free-ship-text aria-live="polite"></p><progress max="100" value="0" data-free-ship-bar aria-label="Fortschritt zum kostenlosen Versand"></progress></div>
+        <div data-cart-lines aria-live="polite"></div>
+        <section class="mt-5" aria-labelledby="cross-title"><h2 id="cross-title" class="h4 mb-3">Passt dazu</h2>
+          <div class="row row-cols-2 row-cols-md-3 g-3">{{colcards:cross}}</div></section>
+      </div>
+      <div class="col-lg-4">
+        <aside class="buy-box summary-sticky" aria-labelledby="sum-title">
+          <h2 id="sum-title" class="h4">Zusammenfassung</h2>
+          <fieldset class="mb-3"><legend class="h6 text-dark">Lieferart</legend>
+            <label class="choice-card mb-2"><input class="form-check-input" type="radio" name="lieferart" value="versand" checked data-delivery><span><strong class="text-dark d-block">Versand</strong>2–4 Werktage</span></label>
+            <label class="choice-card"><input class="form-check-input" type="radio" name="lieferart" value="abholung" data-delivery><span><strong class="text-dark d-block">Click &amp; Collect</strong>Abholung am {{pickup}}</span></label>
+          </fieldset>
+          <dl class="mb-3">
+            <div class="d-flex justify-content-between"><dt class="fw-normal">Zwischensumme</dt><dd class="mb-0" data-cart-subtotal>0,00 €</dd></div>
+            <div class="d-flex justify-content-between"><dt class="fw-normal">Versand</dt><dd class="mb-0" data-cart-shipping>–</dd></div>
+            <div class="d-flex justify-content-between fs-5 fw-bold text-dark border-top pt-2 mt-2"><dt>Gesamt</dt><dd class="mb-0" data-cart-total>0,00 €</dd></div>
+          </dl>
+          <p class="small">inkl. MwSt. Grundpreise je Artikel siehe oben. Kühlpflichtige Artikel: +4,90 € Kühlversand.</p>
+          <a class="btn btn-primary w-100 btn-lg" href="checkout.html" data-checkout-cta><i class="bi bi-lock" aria-hidden="true"></i> Zur Kasse</a>
+          <p class="small text-center mt-2 mb-0"><i class="bi bi-shield-check" aria-hidden="true"></i> Sichere Zahlung per PayPal, Karte, Vorkasse oder Rechnung</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</main>

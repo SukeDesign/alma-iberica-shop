@@ -1,0 +1,34 @@
+# Automatisch erzeugt von build.py
+User-agent: *
+Allow: /
+Disallow: /cart.html
+Disallow: /checkout.html
+Disallow: /account.html
+Disallow: /search.html
+
+# KI-Crawler ausdrücklich erlaubt (GEO) – bei Bedarf auf 'Disallow: /' ändern
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://www.almaiberica.de/sitemap.xml
