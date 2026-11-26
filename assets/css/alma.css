@@ -122,7 +122,7 @@ img { max-width: 100%; height: auto; }
 .lang-btn img { width: 20px; height: 14px; border-radius: 2px; object-fit: cover; }
 .lang-btn:hover, .lang-btn[aria-pressed="true"] { border-color: transparent; background: rgba(255, 255, 255, .65); color: var(--c-black); }
 .lang-btn:focus-visible { outline: 2px solid var(--c-azulejo); outline-offset: 2px; }
-.lang-btn[aria-pressed="true"] { border-color: var(--c-white); font-weight: 600; }
+.lang-btn[aria-pressed="true"] { font-weight: 600; }
 .topbar-phone { display: inline-flex; align-items: center; gap: .35rem; }
 .topbar-actions { align-items: center; }
 .topbar-phone, .topbar-phone:hover, .topbar-phone:focus { text-decoration: none; }
