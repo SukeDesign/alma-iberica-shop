@@ -128,7 +128,8 @@ INDEX = "index, follow, max-image-preview:large, max-snippet:-1, max-video-previ
 def meta(f, title, desc, body_class="", extra_head="", ld=None, robots=INDEX): PAGES[f] = dict(title=title, description=desc, body_class=body_class, extra_head=extra_head, ld=ld, robots=robots)
 SUF = " | Alma Ibérica"
 # SEO: Titel ca. ≤ 60 Zeichen, Beschreibung ca. ≤ 155 Zeichen, Hauptkeyword + Ort (Essen) vorn
-meta("index.html", "Iberische Feinkost online kaufen – aus Essen" + SUF, "Portugiesische & spanische Feinkost, Wein, Bacalhau und Olivenöl online bestellen. Kühlversand deutschlandweit, Click & Collect in Essen.")
+meta("index.html", "Iberische Feinkost online kaufen – aus Essen" + SUF, "Portugiesische & spanische Feinkost, Wein, Bacalhau und Olivenöl online bestellen. Kühlversand deutschlandweit, Click & Collect in Essen.",
+     extra_head='<link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">')
 meta("shop.html", "Feinkost, Wein & Bacalhau aus Portugal & Spanien" + SUF, "Wein, Bacalhau, Olivenöl, Käse und Wurst aus Portugal & Spanien – filtern nach Region, Preis und Allergenen. Versand ab Essen, frei ab 69 €.")
 meta("product.html", "Bacalhau Graúdo, Stockfisch getrocknet, 1 kg" + SUF, "Bacalhau Graúdo (Gadus morhua) aus Portugal, traditionell gesalzen und getrocknet. 24,90 € pro kg. Versand ab Essen oder Abholung.", "has-sticky-buy")
 meta("cart.html", "Warenkorb" + SUF, "Ihr Warenkorb bei Alma Ibérica – Versandart wählen und sicher zur Kasse.", robots=NOINDEX)
@@ -148,7 +149,7 @@ meta("contact.html", "Kontakt & Anfahrt – Alma Ibérica in Essen" + SUF, f"Alm
 meta("shipping.html", "Versand, Kühlversand & Click & Collect in Essen" + SUF, "Versandkosten 5,90 € (frei ab 69 €), Lieferzeit 2–4 Werktage, Kühlversand für Käse & Schinken, Abholung in Essen.")
 
 # ===================== SEO / GEO: strukturierte Daten (JSON-LD) =====================
-def abs_(u): return f'{BRAND["base_url"]}/{u}'
+def abs_(u): return f'{BRAND["base_url"]}/{"" if u == "index.html" else u}'  # Startseite = "/" (einheitlich mit Sitemap)
 
 def ld_business():
     """Organization + lokales Geschäft + WebSite (auf jeder Seite). NAP-Daten (Name, Adresse, Telefon) kommen nur aus BRAND."""
@@ -214,7 +215,7 @@ FAQ = [
 def render(f, body):
     m = PAGES[f]
     vars_ = dict(BRAND)
-    vars_.update(title=m["title"], description=m["description"], canonical=f'{BRAND["base_url"]}/{f}', body_class=m["body_class"], extra_head=m["extra_head"], page=f.replace(".html",""), robots=m["robots"])
+    vars_.update(title=m["title"], description=m["description"], canonical=abs_(f), body_class=m["body_class"], extra_head=m["extra_head"], page=f.replace(".html",""), robots=m["robots"])
     vars_["ld_org"] = json.dumps(ld_business(), ensure_ascii=False)
     vars_["ld_page"] = ld_for(f)
     part = lambda n: open(P("src","partials",n+".html"), encoding="utf-8").read()
