@@ -402,3 +402,20 @@ img { max-width: 100%; height: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) { .hero-anim .drone-toggle { display: none; } }
+
+/* ===== Hero-Effekte: fadeInLeft (Titel) + swing (Button) =====
+   Eigene Keyframes (keine Fremd-CDN). Bei prefers-reduced-motion keine Animation (WCAG 2.3.3). */
+@keyframes aiFadeInLeft { from { opacity: 0; transform: translate3d(-60px, 0, 0); } to { opacity: 1; transform: none; } }
+@keyframes aiSwing {
+  20% { transform: rotate3d(0, 0, 1, 15deg); }
+  40% { transform: rotate3d(0, 0, 1, -10deg); }
+  60% { transform: rotate3d(0, 0, 1, 5deg); }
+  80% { transform: rotate3d(0, 0, 1, -5deg); }
+  to  { transform: rotate3d(0, 0, 1, 0deg); }
+}
+.hero { overflow-x: clip; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero .fx-fade-left { opacity: 0; animation: aiFadeInLeft 1s ease-out both; }
+  .hero .fx-delay-1 { animation-delay: .8s; }   /* Titel startet nach der Eyebrow-Zeile */
+  .hero .fx-swing { transform-origin: top center; animation: aiSwing 1s ease-in-out 3.5s both; } /* nach Lesezeit */
+}

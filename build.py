@@ -17,7 +17,7 @@ BRAND = {
     "base_url": "https://sukedesign.github.io/alma-iberica-shop",   # GitHub-Pages-URL (ohne Slash am Ende)
     "hours": "Mo–Fr 10–18 Uhr, Sa 10–14 Uhr",
     # --- Erfundene Kundendaten (Demo) ---
-    "street": "Schornstr. 1988",
+    "street": "Loremipsumstr. 123",
     "zip": "45128",
     "city": "Essen",
     "region_name": "Nordrhein-Westfalen",
@@ -25,8 +25,8 @@ BRAND = {
     "country": "Deutschland",
     "lat": "51.4556",       # ungefähre Koordinaten Essen (Demo) – im Echtbetrieb exakt eintragen
     "lon": "7.0116",
-    "address": "Schornstr. 1988, 45128 Essen",
-    "pickup": "Essen, Schornstr. 1988",
+    "address": "Loremipsumstr. 123, 45128 Essen",
+    "pickup": "Essen, Loremipsumstr. 123",
     "phone": "0176 12345678",
     "phone_raw": "+4917612345678",
     "email": "info@almaiberica.de",
