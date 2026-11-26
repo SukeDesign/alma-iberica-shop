@@ -28,9 +28,18 @@
   function byId(id) { return PRODUCTS.filter(function (p) { return p.id === id; })[0]; }
 
   /* ---------- Toast (aria-live Region #toastRegion) ---------- */
+  /* Ansage für Screenreader: Region leeren, kurz warten, neuen Text setzen –
+     so wird auch eine identische Meldung (z. B. 2× derselbe Artikel) erneut angesagt. */
+  var announceTimer;
+  function announce(msg) {
+    var r = $('#srAnnouncer'); if (!r) { return; }
+    r.textContent = ''; clearTimeout(announceTimer);
+    announceTimer = setTimeout(function () { r.textContent = msg; }, 100);
+  }
   function toast(msg, ic) {
+    announce(msg);
     var reg = $('#toastRegion'); if (!reg) { return; }
-    var t = el('div', 'toast align-items-center border-0 bg-white shadow'); t.setAttribute('role', 'status'); t.setAttribute('aria-atomic', 'true');
+    var t = el('div', 'toast align-items-center border-0 bg-white shadow');
     var wrap = el('div', 'd-flex'); var b = el('div', 'toast-body text-dark');
     var i = icon((ic || 'bi-check-circle-fill') + ' text-success me-2'); b.appendChild(i); b.appendChild(document.createTextNode(msg));
     var close = el('button', 'btn-close me-2 m-auto'); close.type = 'button'; close.setAttribute('data-bs-dismiss', 'toast'); close.setAttribute('aria-label', 'Meldung schließen');

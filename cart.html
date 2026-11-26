@@ -274,8 +274,10 @@
   </div>
 </div>
 
-<!-- Toasts (aria-live) -->
-<div class="toast-container position-fixed bottom-0 end-0 p-3" aria-live="polite" aria-atomic="true" id="toastRegion"></div>
+<!-- Screenreader-Ansage: dauerhaft im DOM, unsichtbar; Text wird per JS gesetzt (alma.js: announce) -->
+<div class="visually-hidden" id="srAnnouncer" role="status" aria-live="polite" aria-atomic="true"></div>
+<!-- Sichtbare Toasts (bewusst ohne aria-live, sonst doppelte Ansage) -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastRegion"></div>
 
 <!-- Cookie-Consent (TTDSG/TDDDG): gleichwertige Buttons, kein Dark Pattern; Platz im CSS reserviert (fixed → kein CLS) -->
 <div class="cookie-bar" id="cookieBar" role="dialog" aria-modal="false" aria-labelledby="cookieTitle" hidden>
