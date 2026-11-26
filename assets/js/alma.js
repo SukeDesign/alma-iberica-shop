@@ -463,11 +463,16 @@
   /* ---------- Hero-Video: Pause/Weiter (WCAG 2.2.2), Standbild bei reduzierter Bewegung ---------- */
   var heroVid = $('#hero-video'), heroBtn = $('.hero-anim .drone-toggle');
   if (heroVid && heroBtn) {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { heroVid.removeAttribute('autoplay'); heroVid.pause(); }
     var setHeroBtn = function (playing) {
       heroBtn.setAttribute('aria-label', playing ? 'Animation anhalten' : 'Animation fortsetzen');
       heroBtn.firstElementChild.className = 'bi ' + (playing ? 'bi-pause-fill' : 'bi-play-fill');
     };
+    heroVid.muted = true;   // Autoplay ist nur stumm erlaubt
+    if (reduceMotion) { heroVid.removeAttribute('autoplay'); heroVid.pause(); setHeroBtn(false); }
+    else {
+      var p = heroVid.play();   // Absicherung, falls das autoplay-Attribut vom Browser ignoriert wird
+      if (p && p.catch) { p.catch(function () { setHeroBtn(false); }); }
+    }
     heroBtn.addEventListener('click', function () {
       if (heroVid.paused) { heroVid.play(); setHeroBtn(true); } else { heroVid.pause(); setHeroBtn(false); }
     });

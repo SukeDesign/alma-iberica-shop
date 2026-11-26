@@ -284,7 +284,7 @@ img { max-width: 100%; height: auto; }
   .filter-bar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 1rem; scrollbar-width: thin; }
   .filter-reset { margin-left: 0; }
 }
-.filter-pill { display: inline-flex; align-items: center; gap: .5rem; background: var(--c-vinho-tint); color: var(--c-vinho-dark); border: 1px solid rgba(127, 29, 35, .25); border-radius: 999px; padding: .3rem .4rem .3rem 1rem; font-size: .875rem; font-weight: 600; min-height: 44px; }
+.filter-pill { display: inline-flex; align-items: center; gap: .5rem; background: var(--c-vinho-tint); color: var(--c-vinho-dark); border: 1px solid rgba(127, 29, 35, .25); border-radius: 8px; padding: .3rem .4rem .3rem 1rem; font-size: .875rem; font-weight: 600; min-height: 44px; }
 .filter-pill button { border: 0; background: none; color: inherit; width: 36px; height: 36px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; }
 .filter-pill button:hover { background: rgba(127, 29, 35, .12); }
 .accordion { --bs-accordion-btn-focus-box-shadow: none; --bs-accordion-active-bg: var(--c-vinho-tint); --bs-accordion-active-color: var(--c-vinho-dark); --bs-accordion-btn-color: var(--c-ink); --bs-accordion-border-color: var(--line); --bs-accordion-border-radius: var(--ai-radius-card); --bs-accordion-inner-border-radius: var(--ai-radius-card); }
