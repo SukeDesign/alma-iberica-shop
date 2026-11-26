@@ -31,4 +31,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://www.almaiberica.de/sitemap.xml
+Sitemap: https://sukedesign.github.io/alma-iberica-shop/sitemap.xml

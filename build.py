@@ -14,7 +14,7 @@ P = lambda *a: os.path.join(ROOT, *a)
 BRAND = {
     "brand": "Alma Ibérica",
     "promise": "Die Seele der Iberischen Halbinsel – authentisch, hochwertig, mit Liebe ausgewählt.",
-    "base_url": "https://www.almaiberica.de",   # erfundene Demo-Domain (passend zur Demo-E-Mail)
+    "base_url": "https://sukedesign.github.io/alma-iberica-shop",   # GitHub-Pages-URL (ohne Slash am Ende)
     "hours": "Mo–Fr 10–18 Uhr, Sa 10–14 Uhr",
     # --- Erfundene Kundendaten (Demo) ---
     "street": "Schornstr. 1988",

@@ -13,9 +13,9 @@
 - Sprache: Deutsch
 
 ## Wichtige Seiten
-- [Startseite](https://www.almaiberica.de/): Überblick und Bestseller
-- [Alle Produkte](https://www.almaiberica.de/shop.html): Sortiment mit Filtern
-- [Geschenkkörbe](https://www.almaiberica.de/gifts.html)
-- [Versand & Click & Collect](https://www.almaiberica.de/shipping.html)
-- [Häufige Fragen](https://www.almaiberica.de/faq.html)
-- [Kontakt & Anfahrt](https://www.almaiberica.de/contact.html)
+- [Startseite](https://sukedesign.github.io/alma-iberica-shop/): Überblick und Bestseller
+- [Alle Produkte](https://sukedesign.github.io/alma-iberica-shop/shop.html): Sortiment mit Filtern
+- [Geschenkkörbe](https://sukedesign.github.io/alma-iberica-shop/gifts.html)
+- [Versand & Click & Collect](https://sukedesign.github.io/alma-iberica-shop/shipping.html)
+- [Häufige Fragen](https://sukedesign.github.io/alma-iberica-shop/faq.html)
+- [Kontakt & Anfahrt](https://sukedesign.github.io/alma-iberica-shop/contact.html)
