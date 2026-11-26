@@ -120,7 +120,7 @@ img { max-width: 100%; height: auto; }
 .lang-switch { display: inline-flex; gap: .25rem; }
 .lang-btn { display: inline-flex; align-items: center; gap: .35rem; padding: .125rem .5rem; background: transparent; color: var(--c-white); border: 1px solid transparent; border-radius: .375rem; font-size: .8125rem; line-height: 1.4; }
 .lang-btn img { width: 20px; height: 14px; border-radius: 2px; object-fit: cover; }
-.lang-btn:hover { border-color: transparent; background: rgba(255, 255, 255, .65); color: var(--c-black); }
+.lang-btn:hover, .lang-btn[aria-pressed="true"] { border-color: transparent; background: rgba(255, 255, 255, .65); color: var(--c-black); }
 .lang-btn:focus-visible { outline: 2px solid var(--c-azulejo); outline-offset: 2px; }
 .lang-btn[aria-pressed="true"] { border-color: var(--c-white); font-weight: 600; }
 .topbar-phone { display: inline-flex; align-items: center; gap: .35rem; }
