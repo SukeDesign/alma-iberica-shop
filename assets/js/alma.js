@@ -8,6 +8,7 @@
    ========================================================================= */
 (function () {
   'use strict';
+  var IMG_V = '?v=2'; // Cache-Buster: bei neuen Bildern hochzählen
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var body = document.body;
@@ -62,7 +63,7 @@
 
   function lineEl(it, compact) {
     var row = el('div', 'cart-line');
-    var img = document.createElement('img'); img.src = 'assets/img/' + it.img + '-s.webp'; img.alt = ''; img.width = 54; img.height = 72; img.loading = 'lazy';
+    var img = document.createElement('img'); img.src = 'assets/img/' + it.img + '-s.webp' + IMG_V; img.alt = ''; img.width = 54; img.height = 72; img.loading = 'lazy';
     var mid = el('div'); mid.appendChild(el('div', 'fw-semibold text-dark', it.name));
     if (it.base) { mid.appendChild(el('div', 'small', 'Grundpreis: ' + it.base)); }
     if (it.cool) { var c = el('div', 'small'); c.appendChild(icon('bi-snow2')); c.appendChild(document.createTextNode(' kühlpflichtig')); mid.appendChild(c); }
@@ -178,7 +179,7 @@
     qvProduct = p;
     $('[data-qv-title]', m).textContent = p.name; $('[data-qv-brand]', m).textContent = p.brand; $('[data-qv-price]', m).textContent = eur(p.price);
     $('[data-qv-base]', m).textContent = 'Grundpreis: ' + p.base + ' · inkl. MwSt.'; $('[data-qv-desc]', m).textContent = p.desc;
-    var im = $('[data-qv-img]', m); im.src = 'assets/img/' + p.img + '.webp'; im.alt = p.name;
+    var im = $('[data-qv-img]', m); im.src = 'assets/img/' + p.img + '.webp' + IMG_V; im.alt = p.name; $('[data-qv-ai]', m).hidden = !p.ai;
     $('[data-qty-input]', m).value = 1; $('[data-qv-link]', m).href = 'product.html?id=' + p.id;
     $('[data-qv-add]', m).disabled = p.stock === 0;
     bootstrap.Modal.getOrCreateInstance(m).show();
@@ -233,7 +234,7 @@
       var n = 0;
       function opt(href, label, img) {
         var a = el('a'); a.href = href; a.id = 'sg' + fi + '-' + (n++); a.setAttribute('role', 'option'); a.setAttribute('aria-selected', 'false');
-        if (img) { var im = document.createElement('img'); im.src = 'assets/img/' + img + '-s.webp'; im.alt = ''; im.width = 36; im.height = 48; a.appendChild(im); }
+        if (img) { var im = document.createElement('img'); im.src = 'assets/img/' + img + '-s.webp' + IMG_V; im.alt = ''; im.width = 36; im.height = 48; a.appendChild(im); }
         a.appendChild(el('span', '', label)); box.appendChild(a);
       }
       if (prods.length) { box.appendChild(el('h2', '', 'Produkte')); prods.forEach(function (p) { opt('product.html?id=' + p.id, p.name, p.img); }); }
@@ -365,7 +366,7 @@
       var set = function (sel, v) { var x = $(sel); if (x) { x.textContent = v; } };
       set('[data-pdp-name]', pp.name); set('[data-pdp-brand]', pp.brand); set('[data-pdp-price]', eur(pp.price)); set('[data-pdp-price-sticky]', eur(pp.price));
       set('[data-pdp-base]', pp.base); set('[data-pdp-crumb]', pp.name); set('[data-pdp-desc]', pp.desc); document.title = pp.name + ' | Alma Ibérica Online Shop';
-      var pim = $('[data-pdp-img]'); pim.src = 'assets/img/' + pp.img + '.webp'; pim.alt = pp.name;
+      var pim = $('[data-pdp-img]'); pim.src = 'assets/img/' + pp.img + '.webp' + IMG_V; pim.alt = pp.name; $('[data-ai-badge]').hidden = !pp.ai;
       $$('[data-add]', document).forEach(function (b) { if (b.hasAttribute('data-pdp-add')) { b.dataset.add = pp.id; b.disabled = pp.stock === 0; } });
       $$('[data-pdp] [data-wish], .sticky-buy [data-wish]').forEach(function (b) { b.dataset.wish = pp.id; });
       $('[data-thumb="bacalhau"]').dataset.thumb = pp.img;
@@ -378,7 +379,7 @@
     gm.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); zoom(); } });
     gm.addEventListener('mousemove', function (e) { var r = gm.getBoundingClientRect(); gm.style.setProperty('--zoom-x', ((e.clientX - r.left) / r.width * 100) + '%'); gm.style.setProperty('--zoom-y', ((e.clientY - r.top) / r.height * 100) + '%'); });
     $$('[data-thumb]').forEach(function (t) { t.addEventListener('click', function () {
-      gi.src = 'assets/img/' + t.dataset.thumb + '.webp'; $$('[data-thumb]').forEach(function (o) { o.setAttribute('aria-current', 'false'); }); t.setAttribute('aria-current', 'true'); gm.classList.remove('is-zoomed'); }); });
+      gi.src = 'assets/img/' + t.dataset.thumb + '.webp' + IMG_V; $$('[data-thumb]').forEach(function (o) { o.setAttribute('aria-current', 'false'); }); t.setAttribute('aria-current', 'true'); gm.classList.remove('is-zoomed'); }); });
     var addWork = function (n) { var d = new Date(); while (n > 0) { d.setDate(d.getDate() + 1); if (d.getDay() % 6 !== 0) { n--; } } return d.toLocaleDateString('de-DE', { weekday: 'short', day: '2-digit', month: '2-digit' }); };
     $('[data-delivery-date]').textContent = addWork(2) + ' – ' + addWork(4);
     var rec = (store('ai_recent') || []).filter(function (x) { return x !== pp.id; });
@@ -460,21 +461,40 @@
     $$('[data-cookie-settings]').forEach(function (b) { b.addEventListener('click', function () { var c = store('ai_consent') || {}; $('#ck-stat').checked = !!c.stat; $('#ck-mkt').checked = !!c.mkt; bootstrap.Modal.getOrCreateInstance($('#cookieModal')).show(); }); });
   }
 
-  /* ---------- Hero-Video: Pause/Weiter (WCAG 2.2.2), Standbild bei reduzierter Bewegung ---------- */
-  var heroVid = $('#hero-video'), heroBtn = $('.hero-anim .drone-toggle');
-  if (heroVid && heroBtn) {
-    var setHeroBtn = function (playing) {
-      heroBtn.setAttribute('aria-label', playing ? 'Animation anhalten' : 'Animation fortsetzen');
-      heroBtn.firstElementChild.className = 'bi ' + (playing ? 'bi-pause-fill' : 'bi-play-fill');
+  /* ---------- Hero-Slider: Fade, Autostart, einmal durchlaufen; Punkte + Pause (WCAG 2.2.2) ---------- */
+  var heroBox = $('#hero-slider'), heroBtn = $('.hero-anim .drone-toggle');
+  if (heroBox && heroBtn) {
+    var slides = $$('.hero-slide', heroBox), cur = 0, timer = null, playing = false, DELAY = 4500;
+    var dotWrap = document.createElement('div'); dotWrap.className = 'hero-dots';
+    var dots = slides.map(function (s, i) {
+      var d = document.createElement('button'); d.type = 'button'; d.className = 'hero-dot';
+      d.setAttribute('aria-label', 'Bild ' + (i + 1) + ' von ' + slides.length);
+      d.addEventListener('click', function () { show(i); if (playing) { schedule(); } });
+      dotWrap.appendChild(d); return d;
+    });
+    heroBox.insertBefore(dotWrap, heroBtn);
+    var setHeroBtn = function (on) {
+      heroBtn.setAttribute('aria-label', on ? 'Animation anhalten' : 'Animation fortsetzen');
+      heroBtn.firstElementChild.className = 'bi ' + (on ? 'bi-pause-fill' : 'bi-play-fill');
     };
-    heroVid.muted = true;   // Autoplay ist nur stumm erlaubt
-    if (reduceMotion) { heroVid.removeAttribute('autoplay'); heroVid.pause(); setHeroBtn(false); }
-    else {
-      var p = heroVid.play();   // Absicherung, falls das autoplay-Attribut vom Browser ignoriert wird
-      if (p && p.catch) { p.catch(function () { setHeroBtn(false); }); }
-    }
+    var show = function (i) {
+      cur = i;
+      slides.forEach(function (s, k) { s.classList.toggle('is-active', k === i); s.setAttribute('aria-hidden', String(k !== i)); });
+      dots.forEach(function (d, k) { if (k === i) { d.setAttribute('aria-current', 'true'); } else { d.removeAttribute('aria-current'); } });
+    };
+    var stop = function () { clearTimeout(timer); timer = null; playing = false; setHeroBtn(false); };
+    var schedule = function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        if (cur < slides.length - 1) { show(cur + 1); schedule(); } else { stop(); }   // am Ende anhalten: kein Loop
+      }, DELAY);
+    };
+    var start = function () { playing = true; setHeroBtn(true); schedule(); };
+    show(0);
+    if (reduceMotion) { setHeroBtn(false); } else { start(); }
     heroBtn.addEventListener('click', function () {
-      if (heroVid.paused) { heroVid.play(); setHeroBtn(true); } else { heroVid.pause(); setHeroBtn(false); }
+      if (playing) { stop(); }
+      else { if (cur === slides.length - 1) { show(0); } start(); }
     });
   }
 

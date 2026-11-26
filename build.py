@@ -17,7 +17,7 @@ BRAND = {
     "base_url": "https://sukedesign.github.io/alma-iberica-shop",   # GitHub-Pages-URL (ohne Slash am Ende)
     "hours": "Mo–Fr 10–18 Uhr, Sa 10–14 Uhr",
     # --- Erfundene Kundendaten (Demo) ---
-    "street": "Loremipsumstr. 123",
+    "street": "Loremipsumstr. 422",
     "zip": "45128",
     "city": "Essen",
     "region_name": "Nordrhein-Westfalen",
@@ -25,8 +25,8 @@ BRAND = {
     "country": "Deutschland",
     "lat": "51.4556",       # ungefähre Koordinaten Essen (Demo) – im Echtbetrieb exakt eintragen
     "lon": "7.0116",
-    "address": "Loremipsumstr. 123, 45128 Essen",
-    "pickup": "Essen, Loremipsumstr. 123",
+    "address": "Loremipsumstr. 422, 45128 Essen",
+    "pickup": "Essen, Loremipsumstr. 422",
     "phone": "0176 12345678",
     "phone_raw": "+4917612345678",
     "email": "info@almaiberica.de",
@@ -58,12 +58,14 @@ PRODUCTS = [
       desc="Schafskäse aus Rohmilch, 6 Monate gereift, kräftig-nussig im Geschmack.", allergens="Milch", origin="Spanien"),
  dict(id="chourico-carne", name="Chouriço de Carne, geräuchert, 250 g", brand="Casa do Monte", cat="schinken", region="alentejo", price=5.90, amount=250, unit="kg", rating=4.6, count=159, stock=45, badges=["bestseller"], cool=False, img="chourico", bio=False, trad=True,
       desc="Paprikawurst nach Hausrezept, über Eichenholz geräuchert – perfekt für Feijoada und Grill.", allergens="keine", origin="Portugal"),
- dict(id="sardinhas-azeite", name="Sardinhas em Azeite, 120 g", brand="Conservas Atlântico", cat="konserven", region="minho", price=3.90, amount=120, unit="kg", rating=4.8, count=203, stock=120, badges=["import"], cool=False, img="sardinen", bio=False, trad=True,
+ dict(id="sardinhas-azeite", name="Sardinhas em Azeite, 120 g", brand="Conservas Atlântico", cat="konserven", region="minho", price=3.90, amount=120, unit="kg", rating=4.8, count=203, stock=120, badges=["import"], cool=False, img="sardinhas", bio=False, trad=True,
       desc="Sardinen von der Atlantikküste, von Hand verpackt und in Olivenöl eingelegt.", allergens="Fisch", origin="Portugal"),
- dict(id="cafe-torrado", name="Café Torrado em Grão, 500 g", brand="Torra Lusa", cat="kaffee", region="alentejo", price=9.90, amount=500, unit="kg", rating=4.5, count=64, stock=0, badges=[], cool=False, img="kaffee", bio=False, trad=True,
+ dict(id="cafe-torrado", name="Café Torrado em Grão, 500 g", brand="Torra Lusa", cat="kaffee", region="alentejo", price=9.90, amount=500, unit="kg", rating=4.5, count=64, stock=0, badges=[], cool=False, img="delta-cafe", bio=False, trad=True,
       desc="Mittelkräftige Röstung nach portugiesischer Art, mit Schokoladennote und wenig Säure.", allergens="keine", origin="Portugal"),
- dict(id="ginja-licor", name="Ginja Likör mit Sauerkirschen, 0,7 l", brand="Casa Óbidos", cat="spirituosen", region="alentejo", price=13.90, amount=700, unit="l", rating=4.7, count=57, stock=16, badges=["new"], cool=False, img="portwein", bio=False, trad=True,
+ dict(id="ginja-licor", name="Ginja Likör mit Sauerkirschen, 0,7 l", brand="Casa Óbidos", cat="spirituosen", region="alentejo", price=13.90, amount=700, unit="l", rating=4.7, count=57, stock=16, badges=["new"], cool=False, img="ginja", bio=False, trad=True,
       desc="Sauerkirschlikör nach klassischem Rezept – traditionell im Schokoladenbecher serviert.", allergens="keine", origin="Portugal"),
+ dict(id="moscatel-setubal", name="Moscatel de Setúbal, Süßwein, 0,75 l", brand="Adega da Arrábida", cat="wein", region="setubal", price=14.90, amount=750, unit="l", rating=4.7, count=42, stock=21, badges=["new","import"], cool=False, img="moscatel", bio=False, trad=True,
+      desc="Goldgelber, aromatischer Süßwein von der Halbinsel Setúbal mit Noten von Orangenblüte, Honig und getrockneten Aprikosen – schön zu Käse, Mandelgebäck und Desserts.", allergens="Sulfite", origin="Portugal"),
  dict(id="vinho-verde-doc", name="Vinho Verde DOC Branco, 0,75 l", brand="Quinta do Lima", cat="wein", region="minho", price=8.90, amount=750, unit="l", rating=4.6, count=91, stock=38, badges=[], cool=False, img="vinho-verde", bio=False, trad=False,
       desc="Leichter, spritziger Weißwein aus dem Minho mit Zitrus- und Apfelnoten – ideal zu Fisch und Meeresfrüchten.", allergens="Sulfite", origin="Portugal"),
  dict(id="queijo-de-cabra", name="Queijo de Cabra, Ziegenkäse, 250 g", brand="Serra Verde", cat="kaese", region="alentejo", price=7.50, amount=250, unit="kg", rating=4.7, count=63, stock=12, badges=["new","cool"], cool=True, img="queijo-cabra", bio=False, trad=True,
@@ -76,7 +78,7 @@ PRODUCTS = [
       desc="Milder Blütenhonig aus portugiesischer Imkerei mit Lavendelnote.", allergens="keine", origin="Portugal"),
 ]
 CATS = {"wein":"Wein","bacalhau":"Bacalhau","oel":"Olivenöl","brot":"Brot & Gebäck","schinken":"Schinken & Wurst","kaese":"Käse","konserven":"Konserven","kaffee":"Kaffee","spirituosen":"Spirituosen","suess":"Süßes & Gebäck"}
-REGIONS = {"alentejo":"Alentejo","douro":"Douro","minho":"Minho","rioja":"Rioja","andalusien":"Andalusien","katalonien":"Katalonien","kastilien":"Kastilien-La Mancha","azoren":"Azoren"}
+REGIONS = {"alentejo":"Alentejo","douro":"Douro","minho":"Minho","setubal":"Setúbal","rioja":"Rioja","andalusien":"Andalusien","katalonien":"Katalonien","kastilien":"Kastilien-La Mancha","azoren":"Azoren"}
 BADGE = {"bestseller":("badge-bestseller","Bestseller"),"new":("badge-new","Neu"),"cool":("badge-cool","Kühlpflichtig"),"import":("badge-import","Importiert")}
 
 def eur(x): return f"{x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " €"
@@ -92,13 +94,17 @@ def stars(r):
     s = '<i class="bi bi-star-fill" aria-hidden="true"></i>' * full + ('<i class="bi bi-star-half" aria-hidden="true"></i>' if half else '') + '<i class="bi bi-star" aria-hidden="true"></i>' * (5 - full - half)
     return s
 
+# Produktbilder, die mit KI erzeugt wurden -> Badge "KI-generiert"
+AI_IMGS = {"olivenoel","delta-cafe","ginja","manchego","portwein","wein-rioja","jamon","sardinhas","vinho-verde","moscatel"}
+AI_BADGE = '<span class="ai-badge">KI-generiert</span>'
+
 def card(p, hidden=False):
     badges = "".join(f'<span class="badge {BADGE[b][0]}">{BADGE[b][1]}</span>' for b in p["badges"])
     out = p["stock"] == 0
     add = ('<button type="button" class="btn p-add" disabled aria-label="Nicht verfügbar" title="Nicht verfügbar"><i class="bi bi-cart-x-fill" aria-hidden="true"></i></button>' if out else
            f'<button type="button" class="btn p-add" data-add="{p["id"]}" aria-label="In den Warenkorb: {p["name"]}" title="In den Warenkorb"><i class="bi bi-cart-fill" aria-hidden="true"></i></button>')
     return f'''<article class="p-card" data-id="{p["id"]}" data-cat="{p["cat"]}" data-region="{p["region"]}" data-price="{p["price"]}" data-stock="{p["stock"]}" data-cool="{int(p["cool"])}" data-bio="{int(p["bio"])}" data-trad="{int(p["trad"])}" data-allergens="{p["allergens"].lower()}" data-rating="{p["rating"]}" data-name="{p["name"]}" data-brand="{p["brand"]}"{" hidden" if hidden else ""}>
-  <div class="p-media"><a class="p-media-link" href="product.html?id={p["id"]}" tabindex="-1" aria-hidden="true"><img src="assets/img/{p["img"]}.webp" alt="{p["name"]}" width="307" height="409" loading="lazy" decoding="async"></a><div class="p-badges">{badges}</div>
+  <div class="p-media"><a class="p-media-link" href="product.html?id={p["id"]}" tabindex="-1" aria-hidden="true"><img src="assets/img/{p["img"]}.webp?v=2" alt="{p["name"]}" width="307" height="409" loading="lazy" decoding="async"></a>{AI_BADGE if p["img"] in AI_IMGS else ""}<div class="p-badges">{badges}</div>
     <button type="button" class="p-wish" data-wish="{p["id"]}" aria-pressed="false" aria-label="{p["name"]} zur Wunschliste hinzufügen"><i class="bi bi-heart" aria-hidden="true"></i></button>
     <div class="p-add-wrap">{add}</div></div>
   <div class="p-body">
@@ -129,7 +135,7 @@ def meta(f, title, desc, body_class="", extra_head="", ld=None, robots=INDEX): P
 SUF = " | Alma Ibérica"
 # SEO: Titel ca. ≤ 60 Zeichen, Beschreibung ca. ≤ 155 Zeichen, Hauptkeyword + Ort (Essen) vorn
 meta("index.html", "Iberische Feinkost online kaufen – aus Essen" + SUF, "Portugiesische & spanische Feinkost, Wein, Bacalhau und Olivenöl online bestellen. Kühlversand deutschlandweit, Click & Collect in Essen.",
-     extra_head='<link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">')
+     extra_head='<link rel="preload" as="image" href="assets/img/slider/slide-1-640.webp" imagesrcset="assets/img/slider/slide-1-320.webp 320w, assets/img/slider/slide-1-480.webp 480w, assets/img/slider/slide-1-640.webp 640w, assets/img/slider/slide-1-1280.webp 1280w" imagesizes="(min-width: 576px) 540px, 100vw" fetchpriority="high">')
 meta("shop.html", "Feinkost, Wein & Bacalhau aus Portugal & Spanien" + SUF, "Wein, Bacalhau, Olivenöl, Käse und Wurst aus Portugal & Spanien – filtern nach Region, Preis und Allergenen. Versand ab Essen, frei ab 69 €.")
 meta("product.html", "Bacalhau Graúdo, Stockfisch getrocknet, 1 kg" + SUF, "Bacalhau Graúdo (Gadus morhua) aus Portugal, traditionell gesalzen und getrocknet. 24,90 € pro kg. Versand ab Essen oder Abholung.", "has-sticky-buy")
 meta("cart.html", "Warenkorb" + SUF, "Ihr Warenkorb bei Alma Ibérica – Versandart wählen und sicher zur Kasse.", robots=NOINDEX)
@@ -305,7 +311,7 @@ def write_seo_files():
 
 if __name__ == "__main__":
     # products.js (gemeinsame Datenquelle für Suche, Quick-View, Warenkorb)
-    data = [dict(id=p["id"], name=p["name"], brand=p["brand"], cat=p["cat"], price=p["price"], base=base(p), img=p["img"], desc=p["desc"], cool=p["cool"], stock=p["stock"]) for p in PRODUCTS]
+    data = [dict(id=p["id"], name=p["name"], brand=p["brand"], cat=p["cat"], price=p["price"], base=base(p), img=p["img"], desc=p["desc"], cool=p["cool"], stock=p["stock"], ai=p["img"] in AI_IMGS) for p in PRODUCTS]
     cfg = dict(cats=CATS, regions=REGIONS)
     open(P("assets","js","products.js"), "w", encoding="utf-8").write("/* AUTOMATISCH ERZEUGT von build.py – nicht von Hand ändern. Im echten Shop: API/JSON des Shopsystems. */\nwindow.AI_PRODUCTS = " + json.dumps(data, ensure_ascii=False) + ";\nwindow.AI_CATS = " + json.dumps(CATS, ensure_ascii=False) + ";\n")
     n = 0
